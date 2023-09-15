@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-      <div className=''>
-      <h1 className='text-4xl font-bold mt-12 text-center'>Course Registration</h1>
-      <div className='md:flex lg:flex justify-between w-11/12 m-auto'>
+      <div className='w-11/12 m-auto'>
+      <h1 className='text-4xl font-bold pt-12 text-center'>Course Registration</h1>
+      <div className='md:flex lg:flex justify-between'>
         <Card></Card>
         <SideBar></SideBar>
       </div>
