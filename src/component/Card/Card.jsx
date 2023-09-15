@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 const Card = ({ cards, handelTitle}) => {
     const { image, title, description, credit, price } = cards;
     const titlePath = cards;
+    // console.log(cards)
     return (
         <div className="">
             <div className=" bg-[#FFF] p-4 rounded-lg pb-6">

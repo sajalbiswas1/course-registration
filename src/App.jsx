@@ -7,6 +7,10 @@ import SideBar from './component/SideBar/SideBar'
 function App() {
   const [card, setCard] = useState([])
   const [title, setTitle] = useState([])
+  const [remainingTime, setRemainingTime] = useState(0)
+  const [hour, setHour] = useState(0)
+  const [totalPrice, setTotalPrice]=useState(0)
+  // console.log(title)
 
   useEffect(() => {
     fetch('card.json')
@@ -15,10 +19,38 @@ function App() {
   }, []);
 
   const handelTitle = (titlePath) => {
-    const newTitle = [...title, titlePath];
-    setTitle(newTitle)
-  };
+    // console.log(titlePath)
+    const removeDuplicate = title.find(item => item.id == titlePath.id);
+    let count = titlePath.credit;
+
+
+    if (removeDuplicate) {
+      return alert('already select')
+    }
     
+      title.forEach(item => {
+        count = count + item.credit;
+      })
+      const RemainingHour = 20 - count;
+    if(count >20){
+      return alert('Your hour is full')
+    }
+    else{
+      setHour(count)
+      const newTitle = [...title, titlePath];
+      setTitle(newTitle)
+    }
+      
+      setRemainingTime(RemainingHour)
+
+
+      
+    
+
+
+
+  };
+
   return (
     <>
       <div className='w-11/12 m-auto'>
@@ -34,7 +66,11 @@ function App() {
               }
             </div>
           </div>
-          <SideBar title={title}></SideBar>
+          <SideBar
+            title={title}
+            remainingTime={remainingTime}
+            hour={hour}
+          ></SideBar>
         </div>
       </div>
     </>
