@@ -1,9 +1,8 @@
 import { FiBookOpen } from 'react-icons/fi';
 import PropTypes from 'prop-types';
-const Card = ({cards,handelTitle}) => {
-    console.log(cards)
-    const {image, title, description,credit,price} = cards;
-    
+const Card = ({ cards, handelTitle}) => {
+    const { image, title, description, credit, price } = cards;
+    const titlePath = cards;
     return (
         <div className="">
             <div className=" bg-[#FFF] p-4 rounded-lg pb-6">
@@ -16,7 +15,7 @@ const Card = ({cards,handelTitle}) => {
                     <p><FiBookOpen className='text-2xl ml-2'></FiBookOpen></p>
                     <p className='text-zinc-500'>Credit: {credit} hr</p>
                 </div>
-                <button onClick={handelTitle} className="bg-sky-400 w-full text-white text-lg py-2 rounded-lg mt-5">Select</button>
+                <button onClick={()=>handelTitle(titlePath)} className="bg-sky-400 w-full text-white text-lg py-2 rounded-lg mt-5">Select</button>
 
             </div>
 
@@ -27,6 +26,6 @@ const Card = ({cards,handelTitle}) => {
 
 Card.propTypes = {
     cards: PropTypes.array.isRequired,
-    handelTitle: PropTypes.func.isRequired
+    handelTitle: PropTypes.func.isRequired,
 };
 export default Card;

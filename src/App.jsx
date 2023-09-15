@@ -6,17 +6,19 @@ import SideBar from './component/SideBar/SideBar'
 
 function App() {
   const [card, setCard] = useState([])
+  const [title, setTitle] = useState([])
 
   useEffect(() => {
     fetch('card.json')
       .then(res => res.json())
       .then(data => setCard(data))
-  }, [])
+  }, []);
 
-const handelTitle = () =>{
-  console.log('Click tigger me')
-}
-
+  const handelTitle = (titlePath) => {
+    const newTitle = [...title, titlePath];
+    setTitle(newTitle)
+  };
+    
   return (
     <>
       <div className='w-11/12 m-auto'>
@@ -25,11 +27,14 @@ const handelTitle = () =>{
           <div className='w-3/4 pb-5'>
             <div className='grid grid-cols-3 gap-5'>
               {
-                card.map(cards => <Card key={cards.id} cards={cards}></Card>)
+                card.map(cards => <Card
+                  key={cards.id} cards={cards}
+                  handelTitle={handelTitle}
+                ></Card>)
               }
             </div>
           </div>
-          <SideBar handelTitle={handelTitle}></SideBar>
+          <SideBar title={title}></SideBar>
         </div>
       </div>
     </>
