@@ -22,6 +22,7 @@ function App() {
     // console.log(titlePath)
     const removeDuplicate = title.find(item => item.id == titlePath.id);
     let count = titlePath.credit;
+    let price = titlePath.price
 
 
     if (removeDuplicate) {
@@ -30,6 +31,7 @@ function App() {
     
       title.forEach(item => {
         count = count + item.credit;
+        price = price + item.price
       })
       const RemainingHour = 20 - count;
     if(count >20){
@@ -37,18 +39,11 @@ function App() {
     }
     else{
       setHour(count)
+      setTotalPrice(price)
       const newTitle = [...title, titlePath];
       setTitle(newTitle)
     }
-      
       setRemainingTime(RemainingHour)
-
-
-      
-    
-
-
-
   };
 
   return (
@@ -70,6 +65,7 @@ function App() {
             title={title}
             remainingTime={remainingTime}
             hour={hour}
+            totalPrice={totalPrice}
           ></SideBar>
         </div>
       </div>
