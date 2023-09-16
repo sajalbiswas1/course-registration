@@ -10,8 +10,7 @@ function App() {
   const [title, setTitle] = useState([])
   const [remainingTime, setRemainingTime] = useState(20)
   const [hour, setHour] = useState(0)
-  const [totalPrice, setTotalPrice]=useState(0)
-  // console.log(title)
+  const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
     fetch('card.json')
@@ -20,31 +19,30 @@ function App() {
   }, []);
 
   const handelTitle = (titlePath) => {
-    // console.log(titlePath)
     const removeDuplicate = title.find(item => item.id == titlePath.id);
     let count = titlePath.credit;
     let price = titlePath.price
 
-
     if (removeDuplicate) {
       return toast.warning('Already Select')
     }
-    
-      title.forEach(item => {
-        count = count + item.credit;
-        price = price + item.price
-      })
-      const RemainingHour = 20 - count;
-    if(count >20){
+
+    title.forEach(item => {
+      count = count + item.credit;
+      price = price + item.price
+    })
+    const RemainingHour = 20 - count;
+
+    if (count > 20) {
       return toast.error('Not Enough Hour')
     }
-    else{
+    else {
       setHour(count)
       setTotalPrice(price)
       const newTitle = [...title, titlePath];
       setTitle(newTitle)
     }
-      setRemainingTime(RemainingHour)
+    setRemainingTime(RemainingHour)
   };
 
   return (
@@ -70,9 +68,9 @@ function App() {
           ></SideBar>
         </div>
       </div>
-      
+
       <ToastContainer position='top-center'></ToastContainer>
-      
+
     </>
   )
 }
