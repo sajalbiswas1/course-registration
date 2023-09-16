@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const SideBar = ({ title, remainingTime, hour, totalPrice }) => {
 
     return (
-        <div className="w-1/4">
+        <div className="lg:w-1/4 lg:m-0 w-9/12 m-auto">
             <div className="bg-[#FFF] p-5 rounded-lg pb-7">
                 <h3 className="text-xl font-bold text-sky-500 mb-3">Credit Hour Remaining {remainingTime} hr</h3>
                 <hr />

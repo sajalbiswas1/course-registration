@@ -5,7 +5,7 @@ const Card = ({ cards, handelTitle}) => {
     const titlePath = cards;
     // console.log(cards)
     return (
-        <div className="">
+        <div className="lg:mb-0 md:mb-0 mb-5">
             <div className=" bg-[#FFF] p-4 rounded-lg pb-6">
                 <img className="" src={image} alt="" />
                 <p className="text-xl font-bold mt-4">{title}</p>

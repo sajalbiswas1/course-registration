@@ -49,11 +49,11 @@ function App() {
 
   return (
     <>
-      <div className='w-11/12 m-auto'>
+      <div className='w-11/12 m-auto pb-10'>
         <h1 className='text-4xl font-bold pt-12 text-center'>Course Registration</h1>
-        <div className='md:flex lg:flex justify-between gap-5 mt-7'>
-          <div className='w-3/4 pb-5'>
-            <div className='grid grid-cols-3 gap-5'>
+        <div className='lg:flex justify-between gap-5 mt-7'>
+          <div className='lg:w-3/4 pb-5'>
+            <div className='lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 gap-5'>
               {
                 card.map(cards => <Card
                   key={cards.id} cards={cards}
