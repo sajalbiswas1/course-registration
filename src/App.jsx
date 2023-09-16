@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './component/Card/Card'
 import SideBar from './component/SideBar/SideBar'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [card, setCard] = useState([])
   const [title, setTitle] = useState([])
-  const [remainingTime, setRemainingTime] = useState(0)
+  const [remainingTime, setRemainingTime] = useState(20)
   const [hour, setHour] = useState(0)
   const [totalPrice, setTotalPrice]=useState(0)
   // console.log(title)
@@ -26,7 +27,7 @@ function App() {
 
 
     if (removeDuplicate) {
-      return alert('already select')
+      return toast.warning('Already Select')
     }
     
       title.forEach(item => {
@@ -35,7 +36,7 @@ function App() {
       })
       const RemainingHour = 20 - count;
     if(count >20){
-      return alert('Your hour is full')
+      return toast.error('Not Enough Hour')
     }
     else{
       setHour(count)
@@ -69,6 +70,9 @@ function App() {
           ></SideBar>
         </div>
       </div>
+      
+      <ToastContainer position='top-center'></ToastContainer>
+      
     </>
   )
 }
