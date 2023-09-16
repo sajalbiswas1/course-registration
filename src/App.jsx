@@ -34,7 +34,7 @@ function App() {
     const RemainingHour = 20 - count;
 
     if (count > 20) {
-      return toast.error('Not Enough Hour')
+      return toast.error('Maximum hour Exist')
     }
     else {
       setHour(count)
