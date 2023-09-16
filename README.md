@@ -1,4 +1,4 @@
-# Add at least Projects features
+# Add at least Projects features.
 
 - Props: Props play a fundamental role in React as they facilitate the transfer of data from a parent component to its child components. They offer a means of customizing and configuring components, resulting in the dynamic rendering of data and behavior within a React application.
 
@@ -10,5 +10,6 @@
 
 - first i can use useState hooks.
 - There aren't two values, one stores the value and the other sets the value.
-- Set the useState property of from the API or props or objects or array .
+- Set the useState property from the API or props or objects or array .
 - We send the data through Props and use it dynamically.
+- Finally shown in the UI.
